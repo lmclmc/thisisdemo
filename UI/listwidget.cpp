@@ -129,7 +129,7 @@ void SonWidget::mouseReleaseEvent(QMouseEvent *event)
     }
 }
 
-void SonWidget::focusInEvent(QFocusEvent *event)
+void SonWidget::focusInEvent(QFocusEvent *)
 {
     id = -1;
 }
@@ -185,7 +185,7 @@ void ListWidget::responDeleteSuccess()
     p->setFocus();
 }
 
-void ListWidget::focusInEvent(QFocusEvent *event)
+void ListWidget::focusInEvent(QFocusEvent *)
 {
     s->init();
 }

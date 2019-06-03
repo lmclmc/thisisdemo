@@ -39,7 +39,7 @@ GraphWidget::GraphWidget(DataType type, QWidget *parent) :
 void GraphWidget::setIdx(int idx)
 {
     FileWrapper *f = FileWrapper::getInstance();
-    FOpt *fd = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second);
+//    FOpt *fd = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second);
     tL.clear();
     tL = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second)->getData().find(idx)->second;
 //    TT node;
@@ -50,7 +50,7 @@ void GraphWidget::setIdx(int idx)
 //        ::memcpy(node.unit, mIter->unit, sizeof(node.unit));
 //        tL.emplace_back(node);
 //    }
-    printf("tL = %d\n", tL.size());
+//    printf("tL = %d\n", tL.size());
     tL.sort();
  //   mIdx = idx;
     refresh();
@@ -114,10 +114,10 @@ void GraphWidget::refresh()
     int x, y;
 
     for (mIter = tL.begin(); mIter != tL.end(); mIter++){
-        x = (mIter->timeStamp-minTimeStamp)*170/tmpTimeStamp;
+        x = static_cast<int>((mIter->timeStamp-minTimeStamp)*170/tmpTimeStamp);
 
-        y = 120-(mIter->value-minValue)/tmpValue*100;
-        printf("x = %d, y = %d, %lf, %lf, %lf\n", x, y, mIter->value, minValue, tmpValue);
+        y = static_cast<int>(120-(mIter->value-minValue)/tmpValue*100);
+   //     printf("x = %d, y = %d, %lf, %lf, %lf\n", x, y, mIter->value, minValue, tmpValue);
         polygon.append(QPoint(x, y));
     }
 
@@ -154,9 +154,9 @@ void GraphWidget::refresh()
 
     painter.setPen(QPen(Qt::red, 5));
     for (mIter = tL.begin(); mIter != tL.end(); mIter++){
-        x = (mIter->timeStamp-minTimeStamp)*170/tmpTimeStamp;
+        x = static_cast<int>((mIter->timeStamp-minTimeStamp)*170/tmpTimeStamp);
 
-        y = 120-(mIter->value-minValue)/tmpValue*100;
+        y = static_cast<int>(120-(mIter->value-minValue)/tmpValue*100);
         painter.drawPoint(x, y);
     }
 

@@ -7,7 +7,7 @@
 #define SCREEN_WIDTH (160)
 #define SCREEN_HEIGHT (170)
 
-PopupMenu::PopupMenu(QWidget *parent, int mode, int flag) :
+PopupMenu::PopupMenu(QWidget *parent, int mode) :
     QWidget(parent),
     mMode(mode)
 {

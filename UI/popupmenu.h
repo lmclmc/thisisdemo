@@ -10,7 +10,7 @@ class PopupMenu : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PopupMenu(QWidget *parent = nullptr, int mode = 10, int flag = 0);
+    explicit PopupMenu(QWidget *parent = nullptr, int mode = 10);
     void setMainText(QString src);
     void setLeftText(QString src);
     void setRightText(QString src);

@@ -67,14 +67,14 @@ public:
      * @brief 读取文件的时候，会触发该读文件事件
      * @param 每读一行数据，将会以字符串的形式传入参数
      */
-    virtual void readFileEvent(std::string &str);
+    virtual void readFileEvent(std::string &);
 
     /**
      * @brief 写文件事件，
      * @param 将字符串数据写到文件里
      * @return
      */
-    virtual bool writeFileEvent(std::string &str);
+    virtual bool writeFileEvent(std::string &);
 
     /**
      * @brief 从字符串截取第一个子字符串，并且转化为时间

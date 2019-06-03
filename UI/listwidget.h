@@ -34,7 +34,7 @@ private slots:
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event);
-    void focusInEvent(QFocusEvent *event);
+    void focusInEvent(QFocusEvent *);
 
 private:
     int id;
@@ -60,7 +60,7 @@ private slots:
     void responDeleteSuccess();
 
 protected:
-    void focusInEvent(QFocusEvent *event);
+    void focusInEvent(QFocusEvent *);
 
 private:
     int id;

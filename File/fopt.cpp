@@ -33,12 +33,12 @@ std::string F::getFileName()
     return "";
 }
 
-void F::readFileEvent(std::string &str)
+void F::readFileEvent(std::string &)
 {
 
 }
 
-bool F::writeFileEvent(std::string &str)
+bool F::writeFileEvent(std::string &)
 {
     return false;
 }
@@ -100,7 +100,7 @@ fTime F::getDate(std::string &str)
         i++;
     }
 
-    printf("%ld, %d, %d, %d, %d\n", t.year, t.month, t.day, t.hour, t.min);
+    //printf("%ld, %d, %d, %d, %d\n", t.year, t.month, t.day, t.hour, t.min);
     return t;
 }
 

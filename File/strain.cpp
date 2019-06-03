@@ -24,7 +24,7 @@ void strain::readFileEvent(std::string &str)
     ::memcpy(&a.t, &t, sizeof(fTime));
 
     int tmp = 0;
-    while (a.value = getDouble(str)){
+    while ((a.value = getDouble(str)) > 0){
         a.id = tmp;
         tmp ++;
         pushBack(a);
@@ -43,7 +43,7 @@ bool strain::writeFileEvent(std::string &str)
     int tmpTime;
     for (auto tmpMap : getData()){
         for (auto tmpList : tmpMap.second){
-            tmpTime = tmpList.t.sec+tmpList.t.min*60+tmpList.t.sec*3600+tmpList.t.day*86400;
+            tmpTime = static_cast<int>(tmpList.t.sec+tmpList.t.min*60+tmpList.t.sec*3600+tmpList.t.day*86400);
             if (tmpMapT.find(tmpTime) == tmpMapT.end()){
                 tmpMapT.insert(std::pair<int, std::shared_ptr<std::list<TT>>>(tmpTime, std::make_shared<std::list<TT>>(l)));
                 tmpMapT.find(tmpTime)->second.get()->emplace_back(tmpList);
@@ -55,7 +55,7 @@ bool strain::writeFileEvent(std::string &str)
     ::memset(tmp, 0, sizeof(tmp));
     std::list<TT>::iterator iter;
     for (auto tmpMap : tmpMapT){
-        ::sprintf(tmp, "%d/%d/%d %d:%d:%d  ", tmpMap.second.get()->begin()->t.year, tmpMap.second.get()->begin()->t.month,
+        ::sprintf(tmp, "%lld/%lld/%lld %lld:%lld:%lld  ", tmpMap.second.get()->begin()->t.year, tmpMap.second.get()->begin()->t.month,
                   tmpMap.second.get()->begin()->t.day, tmpMap.second.get()->begin()->t.hour, tmpMap.second.get()->begin()->t.min, tmpMap.second.get()->begin()->t.sec);
         str.insert(str.size(), tmp);
         for (iter = tmpMap.second.get()->begin(); iter != tmpMap.second.get()->end(); iter++){
@@ -67,4 +67,5 @@ bool strain::writeFileEvent(std::string &str)
         tmp[0] = '\n';
         str.insert(str.size(), tmp);
     }
+    return true;
 }

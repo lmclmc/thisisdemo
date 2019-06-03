@@ -41,7 +41,7 @@ bool Displacement::writeFileEvent(std::string &str)
     for (auto tmpMap : getData()){
         for (auto tmpList : tmpMap.second){
             ::memset(tmp, 0, sizeof(tmp));
-            ::sprintf(tmp, "%d/%d/%d %d:%d %d %lf %s\n", tmpList.t.year, tmpList.t.month,
+            ::sprintf(tmp, "%lld/%lld/%lld %lld:%lld %d %lf %s\n", tmpList.t.year, tmpList.t.month,
                       tmpList.t.day, tmpList.t.hour, tmpList.t.min, tmpList.id, tmpList.value, tmpList.unit);
             str.insert(str.size(), tmp);
         }
