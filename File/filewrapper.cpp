@@ -8,6 +8,10 @@ FileWrapper::FileWrapper(){
 
 }
 
+/**
+ * @brief 该单例模式支持高效率的线程安全，但不包括写数据
+ * @return  返回一个单例指针
+ */
 FileWrapper *FileWrapper::getInstance()
 {
     if (nullptr == instance){

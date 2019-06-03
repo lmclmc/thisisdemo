@@ -14,7 +14,7 @@ public:
     ~Widget();
 
 private:
-    ListWidget *list;
+    ListWidget *list;                           //列表控件
 };
 
 #endif // WIDGET_H

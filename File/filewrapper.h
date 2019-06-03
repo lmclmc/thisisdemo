@@ -12,10 +12,13 @@ typedef enum class DataType_ : unsigned char{
     Strain
 }DataType;
 
+/**
+ * @brief 将文件操作模块封装成单例模式，将各个
+ */
 class FileWrapper
 {
 public:
-    typedef std::map<DataType, F *> FileMap;
+    typedef std::map<DataType, F *> FileMap;        //不同传感器
     static FileWrapper *getInstance();
     void attach(F *f, DataType d);
     inline FileMap &getFileMap(){

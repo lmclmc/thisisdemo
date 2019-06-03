@@ -141,6 +141,10 @@ public:
     void pushBack(TT node);
 
 private:
+    /**
+     * @brief 传感器中的数据，int为某种传感器编号，std::list<TT>为某种传感器中，按
+     * 时间排序的数据链表
+     */
     std::map<int, std::list<TT>> data;
 };
 #endif // FOPT_H

@@ -67,22 +67,22 @@ private:
     DataType mType;
 
 private:
-    SonWidget *s;
+    SonWidget *s;                   //列表控件，该控件为自定义控件
 
-    QLabel *back;
+    QLabel *back;                   //标签控件，QT内部控件
 
     QPushButton *add;
     QPushButton *del;
     QPushButton *enter;
-    QPushButton *graph;
+    QPushButton *graph;             //按钮控件，QT内部控件
 
-    QScrollBar *scroll;
+    QScrollBar *scroll;             //滚动条控件，该控件为QT内部控件
 
-    EditWidget *e;
+    EditWidget *e;                  //编辑界面控件，该控件为自定义控件
 
-    GraphWidget *g;
+    GraphWidget *g;                 //曲线图控件， 该控件为自定义控件
 
-    PopupMenu *p;
+    PopupMenu *p;                   //提示框控件， 该控件为自定义控件
 };
 
 
