@@ -25,10 +25,10 @@ FileWrapper *FileWrapper::getInstance()
     return instance;
 }
 
-void FileWrapper::attach(F *f, DataType d)
+void FileWrapper::attach(std::shared_ptr<F> f, DataType d)
 {
     f->init();
-    fileMap.insert(std::pair<DataType, F *>(d, f));
+    fileMap.insert(std::pair<DataType, std::shared_ptr<F>>(d, f));
 }
 
 

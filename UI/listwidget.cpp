@@ -77,7 +77,7 @@ ListWidget::ListWidget(DataType type, QWidget *parent) : QWidget(parent),
 void SonWidget::init()
 {
     FileWrapper *f = FileWrapper::getInstance();
-    FOpt  *fd = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second);
+    FOpt  *fd = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second.get());
     FOpt::TMap::iterator iter;
     std::shared_ptr<QLabel> p;
 
@@ -101,7 +101,7 @@ void SonWidget::deleteId()
         if (iter->second == id){
             listLabel.erase(iter);
             FileWrapper *f = FileWrapper::getInstance();
-            FOpt  *fd = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second);
+            FOpt  *fd = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second.get());
             fd->getData().erase(fd->getData().find(id));
             fd->flush();
             break;

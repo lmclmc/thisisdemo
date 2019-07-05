@@ -86,7 +86,7 @@ EditWidget::EditWidget(DataType type, QWidget *parent) : QWidget(parent),
 void EditWidget::setIdx(int idx)
 {
     FileWrapper *f = FileWrapper::getInstance();
-    fd = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second);
+    fd = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second.get());
 
     mIdx = idx;
 

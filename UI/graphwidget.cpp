@@ -41,7 +41,7 @@ void GraphWidget::setIdx(int idx)
     FileWrapper *f = FileWrapper::getInstance();
 //    FOpt *fd = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second);
     tL.clear();
-    tL = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second)->getData().find(idx)->second;
+    tL = dynamic_cast<FOpt *>(f->getFileMap().find(mType)->second.get())->getData().find(idx)->second;
 //    TT node;
 //    for (mIter = fd->getData().find(idx)->second.begin(); mIter != fd->getData().find(idx)->second.end(); mIter++){
 //        ::memcpy(&node.t, &mIter->t, sizeof(TT));

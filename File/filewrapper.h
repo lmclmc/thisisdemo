@@ -3,6 +3,7 @@
 
 #include <map>
 #include <mutex>
+#include <memory>
 
 class F;
 
@@ -18,9 +19,9 @@ typedef enum class DataType_ : unsigned char{
 class FileWrapper
 {
 public:
-    typedef std::map<DataType, F *> FileMap;        //不同传感器
+    typedef std::map<DataType, std::shared_ptr<F>> FileMap;        //不同传感器
     static FileWrapper *getInstance();
-    void attach(F *f, DataType d);
+    void attach(std::shared_ptr<F> f, DataType d);
     inline FileMap &getFileMap(){
         return fileMap;
     }
